@@ -99,6 +99,8 @@ public class MyServiceTP implements Provider<Source> {
                         return this.animalsCrud(method, source);
                     case 2 :
                         return this.animalCrud(method, source, path_parts[1]);
+                    case 3 :
+                        return this.animalsDel(method, source);
                     default:
                         throw new HTTPException(404);
                 }
@@ -158,5 +160,15 @@ public class MyServiceTP implements Provider<Source> {
 
     private Animal unmarshalAnimal(Source source) throws JAXBException {
         return (Animal) this.jc.createUnmarshaller().unmarshal(source);
+    }
+    
+    /**
+     * Method bound to delete all /animals
+     */
+    private Source animalsDel(String method, Source source) throws JAXBException {
+	   if("DELETE".equals(method)){
+		   this.ce
+           return new JAXBSource(this.jc, this.center);
+       }
     }
 }
